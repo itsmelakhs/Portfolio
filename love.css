@@ -1,0 +1,122 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background: #f0f8ff; /* Alice Blue */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2 {
+    color: #d76d77; /* Light Pink */
+    text-align: center;
+    font-family: 'Georgia', serif;
+}
+
+.form-container {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #d76d77; /* Light Pink */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #c6286c; /* Darker Pink */
+}
+
+.timeline {
+    position: relative;
+    padding: 0;
+    list-style: none;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    height: 100%;
+    width: 4px;
+    background: #d76d77; /* Light Pink */
+    border-radius: 2px;
+}
+
+.timeline-content {
+    background: #ffffff;
+    border: 2px solid #d76d77;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-content h2 {
+    font-size: 1.5rem;
+    color: #d76d77;
+    margin-top: 0;
+}
+
+.timeline-content p {
+    margin: 10px 0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 80px; /* Increased padding to accommodate the date within the item */
+    display: flex;
+    align-items: flex-start;
+}
+
+.timeline-date {
+    position: absolute;
+    left: 0; /* Adjust the left positioning */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    color: #888;
+    text-align: center;
+    width: 60px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+}
