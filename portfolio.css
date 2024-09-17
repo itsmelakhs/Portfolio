@@ -216,6 +216,24 @@ h1 {
     max-width: 300px;
     text-align: center;
     transition: transform 0.3s ease;
+    text-decoration: none; /* Ensure no underline for links */
+    color: inherit; /* Keep text color inherited for default */
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.project-card h3 {
+    color: black; /* Title in black */
+    font-size: 1.5rem;
+    margin-bottom: 10px; /* Space between title and description */
+}
+
+.project-card p {
+    color: black; /* Description in black */
+    font-size: 1rem;
+    margin-bottom: 20px; /* Space between description and image */
 }
 
 .project-card img {
@@ -224,14 +242,21 @@ h1 {
     transition: transform 0.3s ease;
 }
 
-.project-card:hover {
+.project-card:hover img {
     transform: scale(1.05);
 }
 
+/* Make entire card clickable */
 .project-card a {
+    display: block;
     text-decoration: none;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+.project-card:hover a {
     color: #8a2be2;
-    font-weight: bold;
 }
 
 /* Contact Section */
