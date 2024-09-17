@@ -9,15 +9,19 @@
 body {
     font-family: 'Comfortaa', sans-serif;
     color: #333;
-    background: linear-gradient(to right, #d8bdbd, #f5deb3); /* Subtle gradient */
+    background: linear-gradient(to right, #d8bdbd, #f5deb3);
 }
 
 /* Navigation */
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center; /* Center vertically */
     padding: 20px;
     background-color: #f7f7f7;
+    position: sticky; /* Sticky navigation */
+    top: 0;
+    z-index: 1000;
 }
 
 .logo h2 {
@@ -80,51 +84,18 @@ h1 {
 }
 
 .name {
-    font-size: 5rem; /* Increase size for name */
-    color: #000; /* Black color */
+    font-size: 5rem;
+    color: #000;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .role {
-    font-size: 2rem; /* Slightly reduced size for role description */
-    color: #000; /* Black color */
+    font-size: 2rem;
+    color: #000;
     font-weight: bold;
     margin-top: 0;
     animation: fadeInUp 1s ease-out;
-}
-
-/* Animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Sliding Animation */
-.slide-in {
-    opacity: 0;
-    transform: translateX(-100%);
-    animation: slideIn 2s forwards ease-out;
-}
-
-.slide-in-name {
-    opacity: 0;
-    transform: translateX(100%);
-    animation: slideIn 2s forwards ease-out;
-    animation-delay: 0.5s;
-}
-
-@keyframes slideIn {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
 
 /* About Section */
@@ -140,7 +111,6 @@ h1 {
     justify-content: center;
 }
 
-/* School and College Boxes */
 .about-box {
     background-color: #fff;
     border-radius: 10px;
@@ -149,49 +119,12 @@ h1 {
     width: 100%;
     max-width: 500px;
     margin: 10px;
-  /*   animation: fadeInUp 1s ease-out; */
 }
 
 .about-box h3 {
     font-size: 2rem;
     color: #663399;
     margin-bottom: 10px;
-}
-
-.about-box p {
-    font-size: 1rem;
-}
-
-.about-box ul {
-    list-style-type: disc;
-    margin-left: 20px;
-}
-
-/* Activities Section */
-.activity-box {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-top: 20px;
-    width: 100%;
-    max-width: 500px;
-/*     animation: fadeInUp 1s ease-out; */
-}
-
-.activity-box h4 {
-    font-size: 1.5rem;
-    color: #8a2be2;
-    margin-bottom: 10px;
-}
-
-.activity-box p {
-    font-size: 1rem;
-}
-
-.activity-box ul {
-    list-style-type: circle;
-    margin-left: 20px;
 }
 
 /* Projects Section */
@@ -216,47 +149,18 @@ h1 {
     max-width: 300px;
     text-align: center;
     transition: transform 0.3s ease;
-    text-decoration: none; /* Ensure no underline for links */
-    color: inherit; /* Keep text color inherited for default */
+    text-decoration: none;
+    color: inherit;
 }
 
 .project-card:hover {
     transform: scale(1.05);
 }
 
-.project-card h3 {
-    color: black; /* Title in black */
-    font-size: 1.5rem;
-    margin-bottom: 10px; /* Space between title and description */
-}
-
-.project-card p {
-    color: black; /* Description in black */
-    font-size: 1rem;
-    margin-bottom: 20px; /* Space between description and image */
-}
-
 .project-card img {
     width: 100%;
     border-radius: 10px;
     transition: transform 0.3s ease;
-}
-
-.project-card:hover img {
-    transform: scale(1.05);
-}
-
-/* Make entire card clickable */
-.project-card a {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-    padding: 0;
-    margin: 0;
-}
-
-.project-card:hover a {
-    color: #8a2be2;
 }
 
 /* Contact Section */
@@ -293,9 +197,27 @@ h1 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .nav-links li {
-        display: block;
-        margin: 10px 0;
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .name {
+        font-size: 3.5rem;
+    }
+
+    .role {
+        font-size: 1.5rem;
     }
 
     .about-content {
@@ -305,5 +227,31 @@ h1 {
 
     .projects-grid {
         flex-direction: column;
+    }
+
+    .project-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .name {
+        font-size: 2.5rem;
+    }
+
+    .role {
+        font-size: 1.2rem;
+    }
+
+    .contact-section h2 {
+        font-size: 2rem;
+    }
+
+    .contact-section p {
+        font-size: 1rem;
     }
 }
