@@ -9,7 +9,7 @@
 body {
     font-family: 'Comfortaa', sans-serif;
     color: #333;
-    background: linear-gradient(to right, #d8bdbd, #f5deb3);
+    background: linear-gradient(to right, #d8bdbd, #f5deb3); /* Subtle gradient */
 }
 
 /* Navigation */
@@ -19,7 +19,9 @@ nav {
     align-items: center;
     padding: 20px;
     background-color: #f7f7f7;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo h2 {
@@ -28,31 +30,13 @@ nav {
     color: #663399;
 }
 
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 4px;
-}
-
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #663399;
-    transition: 0.3s;
-}
-
-/* Navigation Links */
 .nav-links {
-    display: flex;
     list-style: none;
-    gap: 20px;
+    display: flex;
 }
 
 .nav-links li {
-    display: inline;
+    margin-left: 20px;
 }
 
 .nav-links a {
@@ -67,25 +51,28 @@ nav {
     color: #8a2be2;
 }
 
-/* Hide the nav-links for mobile */
-.nav-links.hidden {
-    display: none;
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #8a2be2;
+    transition: width 0.3s ease-in-out;
 }
 
-/* Show the nav-links horizontally when the hamburger is clicked */
-.nav-links.active {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    right: 0;
-    background-color: #f7f7f7;
-    padding: 10px;
-    z-index: 10;
+.nav-links a:hover::before {
+    width: 100%;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 /* Home Section */
@@ -106,15 +93,15 @@ h1 {
 }
 
 .name {
-    font-size: 5rem;
-    color: #000;
+    font-size: 5rem; /* Increase size for name */
+    color: #000; /* Black color */
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .role {
-    font-size: 2rem;
-    color: #000;
+    font-size: 2rem; /* Slightly reduced size for role description */
+    color: #000; /* Black color */
     font-weight: bold;
     margin-top: 0;
     animation: fadeInUp 1s ease-out;
@@ -153,17 +140,187 @@ h1 {
     }
 }
 
+/* About Section */
+.about-section {
+    padding: 60px 20px;
+    background-color: #f0f0f0;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.about-box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: 10px;
+}
+
+.about-box h3 {
+    font-size: 2rem;
+    color: #663399;
+    margin-bottom: 10px;
+}
+
+.about-box p {
+    font-size: 1rem;
+}
+
+.about-box ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+/* Activities Section */
+.activity-box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.activity-box h4 {
+    font-size: 1.5rem;
+    color: #8a2be2;
+    margin-bottom: 10px;
+}
+
+.activity-box p {
+    font-size: 1rem;
+}
+
+.activity-box ul {
+    list-style-type: circle;
+    margin-left: 20px;
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.project-card h3 {
+    color: black;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: black;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 60px 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 3rem;
+    color: #663399;
+    margin-bottom: 10px;
+}
+
+.contact-section p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-section a.btn {
+    background-color: #8a2be2;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+
+.contact-section a.btn:hover {
+    background-color: #663399;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
     .nav-links {
-        display: none;
+        display: none; /* Hide navigation links by default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #f7f7f7;
+        width: 200px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .nav-links.active {
-        display: flex;
+    .nav-links.show {
+        display: flex; /* Show navigation links when toggled */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: block; /* Show the hamburger menu icon */
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .projects-grid {
+        flex-direction: column;
     }
 }
